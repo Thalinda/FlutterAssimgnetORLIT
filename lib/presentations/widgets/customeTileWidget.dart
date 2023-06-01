@@ -40,6 +40,8 @@ class CustomTileWidget extends StatelessWidget {
           style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
+          overflow: TextOverflow.ellipsis, // Add ellipsis when text overflows
+          maxLines: 2, // Specify the maximum number of lines
         ),
         subtitle: Padding(
           padding: const EdgeInsets.only(top: 8.0),
