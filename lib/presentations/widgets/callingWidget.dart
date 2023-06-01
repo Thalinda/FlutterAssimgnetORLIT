@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/business_logic/bloc/news_state_bloc.dart';
+import '../../business_logic/bloc/news_state_bloc.dart';
 import '../../data/repo/getnews.dart';
 import 'customeTileWidget.dart';
 
