@@ -1,9 +1,11 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 import 'package:flutter/material.dart';
 
+import 'package:assigment/model/newsResponse.dart';
+
 class CustomTileWidget extends StatelessWidget {
-  const CustomTileWidget({
-    super.key,
-  });
+  NewsResponse newsItem;
+  CustomTileWidget({Key? key, required this.newsItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +29,15 @@ class CustomTileWidget extends StatelessWidget {
               width: 2,
             ),
           ),
-          child: const CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGPp-dUgY85YiRLNOkOSPNsbTtDEcmTaqIKzjLTug4&s'),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(newsItem.imageUrl.toString() != ""
+                ? newsItem.imageUrl.toString()
+                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGPp-dUgY85YiRLNOkOSPNsbTtDEcmTaqIKzjLTug4&s'),
           ),
         ),
-        title: const Text(
-          'Title',
-          style: TextStyle(
+        title: Text(
+          newsItem.title.toString(),
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -42,11 +45,11 @@ class CustomTileWidget extends StatelessWidget {
           padding: const EdgeInsets.only(top: 8.0),
           child: Row(
             children: [
-              Icon(Icons.access_time_outlined),
+              const Icon(Icons.access_time_outlined),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.015,
               ),
-              const Text('Author - ')
+              Text('Author : ${newsItem.author.toString()}')
             ],
           ),
         ),

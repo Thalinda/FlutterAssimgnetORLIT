@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:assigment/data/repo/getnews.dart';
+import 'package:flutter/foundation.dart';
 
 part 'news_state_event.dart';
 part 'news_state_state.dart';
@@ -17,8 +18,12 @@ class NewsStateBloc extends Bloc<NewsStateEvent, NewsStateState> {
       emit(NewsLoadingState());
       try {
         final data = await gettingRepository.getNews(newsType);
+
         emit(NewSLoadedState(newsResponse: data));
       } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
         emit(NewsErrorState(error: e.toString()));
       }
     });

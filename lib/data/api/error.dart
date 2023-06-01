@@ -6,7 +6,6 @@ class DioException implements Exception {
   late String errorMessage;
 
   DioException.fromDioError(DioError dioError) {
-    print(dioError.response);
     switch (dioError.type) {
       case DioErrorType.cancel:
         errorMessage = 'Request to the server was cancelled.';
