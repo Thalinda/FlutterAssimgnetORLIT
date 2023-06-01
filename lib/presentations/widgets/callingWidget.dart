@@ -64,7 +64,7 @@ class CallingWidgets extends StatelessWidget {
                       ),
                     );
                   } else if (state is NewSLoadedState) {
-                    return state.newsResponse.isNotEmpty
+                    return state.newsResponse.isEmpty
                         ? Padding(
                             padding: EdgeInsets.only(
                                 top: MediaQuery.of(context).size.height * 0.3),
